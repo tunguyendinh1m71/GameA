@@ -1,0 +1,8 @@
+[   
+    {"name": "NPC", "text": "Hello stranger!"},
+    {"name": "Player", "text": "Who are you? What happened here!"},
+    {"name": "NPC", "text": "I am Spirit Hood, a weapon's seller."},
+    {"name": "NPC", "text": "There was an attackment toward the King's land."},
+    {"name": "Player", "text": "Whaatttt? Would you mind telling me more!?"},
+    {"name": "NPC", "text": "I do not exactly know, but things are gonna out of hand!"} 
+]

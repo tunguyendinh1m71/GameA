@@ -1,0 +1,102 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/Pause.gd" type="Script" id=1]
+[ext_resource path="res://assets/black_texture.png" type="Texture" id=2]
+[ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/montreal/Montreal.tres" type="DynamicFont" id=3]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 319.963 ]
+}
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.501961 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 9.53516
+margin_right = -1.0
+margin_bottom = 9.53516
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 456.0
+margin_top = 200.0
+margin_right = 576.0
+margin_bottom = 240.0
+custom_fonts/font = ExtResource( 3 )
+text = "Paused"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 477.0
+margin_top = 277.0
+margin_right = 555.0
+margin_bottom = 378.0
+custom_constants/separation = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Continue" type="Button" parent="VBoxContainer"]
+margin_right = 78.0
+margin_bottom = 20.0
+focus_neighbour_top = NodePath("../Quit")
+focus_neighbour_bottom = NodePath("../Setting")
+text = "Continue"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Setting" type="Button" parent="VBoxContainer"]
+margin_top = 27.0
+margin_right = 78.0
+margin_bottom = 47.0
+focus_neighbour_top = NodePath("../Continue")
+focus_neighbour_bottom = NodePath("../Menu")
+text = "Setting"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 78.0
+margin_bottom = 74.0
+focus_neighbour_top = NodePath("../Setting")
+focus_neighbour_bottom = NodePath("../Quit")
+text = "Menu"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 81.0
+margin_right = 78.0
+margin_bottom = 101.0
+focus_neighbour_top = NodePath("../Menu")
+focus_neighbour_bottom = NodePath("../Continue")
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/Setting" to="." method="_on_Setting_pressed"]
+[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

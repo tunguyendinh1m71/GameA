@@ -1,0 +1,120 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://script/DialoguePlayer.gd" type="Script" id=1]
+[ext_resource path="res://assets/Dialogue/DialogueSystem v0.82/Assets/ExampleScene/Sprites/DialogueUI/panel_brown.png" type="Texture" id=2]
+[ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/Xolonium.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/Dialogue/DialogueSystem v0.82/Assets/ExampleScene/Sprites/DialogueUI/arrowBrown_right.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "MOve"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 602.79, 97.5785 ), Vector2( 602.79, 92.5785 ), Vector2( 602.79, 97.578 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 602.79, 97.5785 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Message:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Word_spread"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Message:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="DialoguePlayer" type="CanvasLayer"]
+script = ExtResource( 1 )
+dialogue_file = "res://Json files/Dialogue.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+margin_left = 203.0
+margin_top = 408.0
+margin_right = 841.0
+margin_bottom = 531.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0.368073, 1.03062, 98.3725, 97.47 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 7
+patch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 27.0
+margin_top = 15.0
+margin_right = 127.0
+margin_bottom = 47.0
+custom_fonts/normal_font = ExtResource( 4 )
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="RichTextLabel" parent="NinePatchRect"]
+margin_left = 21.6364
+margin_top = 50.3182
+margin_right = 567.636
+margin_bottom = 119.318
+custom_fonts/normal_font = ExtResource( 3 )
+visible_characters = 0
+percent_visible = 0.0
+text = "Message"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Sprite" parent="NinePatchRect"]
+position = Vector2( 602.79, 97.5785 )
+rotation = 1.5708
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NinePatchRect/Indicator"]
+anims/MOve = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+anims/Word_spread = SubResource( 3 )

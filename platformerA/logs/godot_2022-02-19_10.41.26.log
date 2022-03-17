@@ -1,0 +1,10 @@
+Godot Engine v3.4.2.stable.official.45eaa2daf - https://godotengine.org
+OpenGL ES 3.0 Renderer: Intel(R) HD Graphics 5500
+OpenGL ES Batching: ON
+ 
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1264) - Condition "!data.inside_tree && p_path.is_absolute()" is true. Returned: nullptr
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1264) - Condition "!data.inside_tree && p_path.is_absolute()" is true. Returned: nullptr
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1264) - Condition "!data.inside_tree && p_path.is_absolute()" is true. Returned: nullptr
