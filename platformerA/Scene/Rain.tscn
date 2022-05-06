@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform sampler2D noise;
+
+uniform float intensity : hint_range(0.0,1.0) = 0.05;
+
+void fragment() {
+
+vec2 direction = vec2(-0.1, 0.2);
+
+float movement = TIME * 3.0;
+
+vec4 displacement = texture(noise, fract(UV - direction * movement));
+
+float displacement_length = length(displacement.rgb);
+
+vec2 uv = SCREEN_UV + displacement.rg * intensity * displacement_length;
+
+COLOR = vec4(texture(SCREEN_TEXTURE, uv).rgb, 1.0);
+
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/intensity = 0.05
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 3000, 1000, 1 )
+flag_disable_z = true
+gravity = Vector3( -40, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_random = 1.0
+color = Color( 0.443137, 0.686275, 0.768627, 1 )
+
+[node name="Rain" type="Node2D"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 3 )
+amount = 5000
+lifetime = 4.0
+speed_scale = 2.5
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource( 1 )
