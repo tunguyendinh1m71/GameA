@@ -11,6 +11,7 @@ height = 14.0
 [sub_resource type="Animation" id=7]
 resource_name = "Air"
 length = 0.2
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Anna:frame")
 tracks/0/interp = 1
@@ -125,9 +126,9 @@ tracks/5/keys = {
 "values": [ Vector2( 0, 3 ), Vector2( -1, 3 ), Vector2( -1.2, 3 ), Vector2( 0.384615, 3 ), Vector2( 0, 3 ), Vector2( 0, 3 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Attack_2"
-length = 0.3
+[sub_resource type="Animation" id=13]
+resource_name = "Dash"
+length = 0.2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Anna:frame")
@@ -136,58 +137,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.02, 0.05, 0.09, 0.13, 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 23, 24, 25 ]
+"values": [ 69, 70, 71, 72, 73, 74, 75 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Anna:position")
+tracks/1/path = NodePath("HitPosition/HitBox/HIt_collision:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.02, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0.16, -0.804 ), Vector2( 0.1, -0.804 ), Vector2( 0.16, -0.804 ) ]
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("HitPosition/HitBox/HIt_collision:position")
+tracks/2/path = NodePath("CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 15.6232, -3.16275 ), Vector2( 19.623, 1.837 ), Vector2( 19.623, 1.837 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("HitPosition/HitBox/HIt_collision:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0.15, 0.3 ),
+"times": PoolRealArray( 0, 0.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("CollisionShape2D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, false ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -203,6 +180,23 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Hurt"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Anna:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 37, 38, 39, 40 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -428,29 +422,12 @@ tracks/3/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "Run_attack"
-length = 1.5
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("Anna:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.14, 0.28, 0.42, 0.57, 0.75, 0.89, 1.02, 1.13, 1.23, 1.31, 1.42, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 69, 70, 72, 73, 74, 76, 77, 78, 79, 80, 81, 82, 83 ]
-}
-
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
 height = 0.0
 
 [node name="Player2" type="KinematicBody2D"]
-collision_mask = 106
+collision_mask = 92
 script = ExtResource( 1 )
 
 [node name="Anna" type="Sprite" parent="."]
@@ -466,23 +443,22 @@ position = Vector2( 0, 3 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Die"
 anims/Air = SubResource( 7 )
 anims/Attack_1 = SubResource( 8 )
-anims/Attack_2 = SubResource( 9 )
+anims/Dash = SubResource( 13 )
 anims/Die = SubResource( 10 )
+anims/Hurt = SubResource( 12 )
 anims/Idle = SubResource( 3 )
 anims/Jump = SubResource( 6 )
 anims/RESET = SubResource( 4 )
 anims/Run = SubResource( 5 )
-anims/Run_attack = SubResource( 11 )
 
 [node name="HitPosition" type="Position2D" parent="."]
 position = Vector2( -2.10511, 0.0255604 )
 
 [node name="HitBox" type="Area2D" parent="HitPosition"]
-collision_layer = 16
-collision_mask = 4
+collision_layer = 32
+collision_mask = 2
 
 [node name="HIt_collision" type="CollisionShape2D" parent="HitPosition/HitBox"]
 position = Vector2( 19.6232, 1.83725 )
@@ -494,13 +470,10 @@ disabled = true
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource( 3 )]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.1
-one_shot = true
 
-[node name="Timer2" type="Timer" parent="."]
-wait_time = 1.51
-one_shot = true
+[node name="Timer_attack" type="Timer" parent="."]
+wait_time = 0.66
 
 [connection signal="body_entered" from="HitPosition/HitBox" to="." method="_on_HitBox_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="timeout" from="Timer_attack" to="." method="_on_Timer_attack_timeout"]

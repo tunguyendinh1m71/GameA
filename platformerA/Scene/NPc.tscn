@@ -65,7 +65,7 @@ tracks/1/keys = {
 
 [node name="NPC" type="Area2D"]
 position = Vector2( 135.862, 79.7356 )
-collision_layer = 64
+collision_layer = 8
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

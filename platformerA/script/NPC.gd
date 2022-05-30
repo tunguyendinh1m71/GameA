@@ -13,3 +13,9 @@ func find_and_use_dialogue():
 		dialogue_player.play()
 
 
+func _on_NPC_body_entered(_body):
+	ObjectInteraction.label1 = true
+
+
+func _on_NPC_body_exited(_body):
+	ObjectInteraction.label1 = false

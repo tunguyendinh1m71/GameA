@@ -1,0 +1,156 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://world1.tres" type="TileSet" id=1]
+[ext_resource path="res://Scene/Player/Player_women.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scene/Bosses/Boss1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://script/BossBattle.gd" type="Script" id=4]
+[ext_resource path="res://assets/tileworld/Platformer - desert/Background/BG-sky.png" type="Texture" id=5]
+[ext_resource path="res://assets/tileworld/Platformer - desert/Background/BG-ruins.png" type="Texture" id=6]
+[ext_resource path="res://script/To_be_continue.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bright"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.980392 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Dark"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.980392 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8.8764, 28.3248 )
+
+[node name="BossMatch" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.45, 0.45 )
+motion_mirroring = Vector2( 1440, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+modulate = Color( 0.45098, 0.0823529, 0.0352941, 1 )
+position = Vector2( 552.468, -166.213 )
+scale = Vector2( 10, 7.5 )
+texture = ExtResource( 5 )
+
+[node name="Ruin" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.7, 0.7 )
+motion_mirroring = Vector2( 1344, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Ruin"]
+position = Vector2( 26, 113.406 )
+scale = Vector2( 5.25, 3.75 )
+texture = ExtResource( 6 )
+
+[node name="TileGround" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 4
+collision_mask = 65
+format = 1
+tile_data = PoolIntArray( 0, 16, 0, 393233, 23, 0, 458769, 23, 0, 458801, 23, 0, 524305, 23, 0, 524337, 23, 0, 589841, 23, 0, 589873, 23, 0, 655377, 23, 0, 655409, 23, 0, 720913, 23, 0, 720945, 23, 0, 786449, 23, 0, 786481, 23, 0, 851985, 23, 0, 852017, 23, 0, 917521, 23, 0, 917553, 23, 0, 983057, 23, 0, 983089, 23, 0, 1048593, 23, 0, 1048625, 23, 0, 1114129, 23, 0, 1114161, 23, 0, 1179665, 23, 0, 1179697, 23, 0, 1245201, 23, 0, 1245233, 23, 0, 1310737, 23, 0, 1310769, 23, 0, 1376273, 23, 0, 1376305, 23, 0, 1441809, 23, 0, 1441841, 23, 0, 1507345, 23, 0, 1507377, 23, 0, 1572881, 23, 0, 1572913, 23, 0, 1638417, 23, 0, 1638449, 23, 0, 1703953, 23, 0, 1703985, 23, 0, 1769490, 13, 0, 1769491, 13, 0, 1769492, 13, 0, 1769493, 13, 0, 1769494, 13, 0, 1769495, 13, 0, 1769496, 13, 0, 1769497, 13, 0, 1769498, 13, 0, 1769499, 13, 0, 1769500, 13, 0, 1769501, 13, 0, 1769502, 13, 0, 1769503, 13, 0, 1769504, 13, 0, 1769505, 13, 0, 1769506, 13, 0, 1769507, 13, 0, 1769508, 13, 0, 1769509, 13, 0, 1769510, 13, 0, 1769511, 13, 0, 1769512, 13, 0, 1769513, 13, 0, 1769514, 13, 0, 1769515, 13, 0, 1769516, 13, 0, 1769517, 13, 0, 1769518, 13, 0, 1769519, 13, 0, 1769520, 13, 0, 1835026, 23, 0, 1835027, 23, 0, 1835028, 23, 0, 1835029, 23, 0, 1835030, 23, 0, 1835031, 23, 0, 1835032, 23, 0, 1835033, 23, 0, 1835034, 23, 0, 1835035, 23, 0, 1835036, 23, 0, 1835037, 23, 0, 1835038, 23, 0, 1835039, 23, 0, 1835040, 23, 0, 1835041, 23, 0, 1835042, 23, 0, 1835043, 23, 0, 1835044, 23, 0, 1835045, 23, 0, 1835046, 23, 0, 1835047, 23, 0, 1835048, 23, 0, 1835049, 23, 0, 1835050, 23, 0, 1835051, 23, 0, 1835052, 23, 0, 1835053, 23, 0, 1835054, 23, 0, 1835055, 23, 0, 1835056, 23, 0, 1900562, 23, 0, 1900563, 23, 0, 1900564, 23, 0, 1900565, 23, 0, 1900566, 23, 0, 1900567, 23, 0, 1900568, 23, 0, 1900569, 23, 0, 1900570, 23, 0, 1900571, 23, 0, 1900572, 23, 0, 1900573, 23, 0, 1900574, 23, 0, 1900575, 23, 0, 1900576, 23, 0, 1900577, 23, 0, 1900578, 23, 0, 1900579, 23, 0, 1900580, 23, 0, 1900581, 23, 0, 1900582, 23, 0, 1900583, 23, 0, 1900584, 23, 0, 1900585, 23, 0, 1900586, 23, 0, 1900587, 23, 0, 1900588, 23, 0, 1900589, 23, 0, 1900590, 23, 0, 1900591, 23, 0, 1900592, 23, 0, 1966098, 23, 0, 1966099, 23, 0, 1966100, 23, 0, 1966101, 23, 0, 1966102, 23, 0, 1966103, 23, 0, 1966104, 23, 0, 1966105, 23, 0, 1966106, 23, 0, 1966107, 23, 0, 1966108, 23, 0, 1966109, 23, 0, 1966110, 23, 0, 1966111, 23, 0, 1966112, 23, 0, 1966113, 23, 0, 1966114, 23, 0, 1966115, 23, 0, 1966116, 23, 0, 1966117, 23, 0, 1966118, 23, 0, 1966119, 23, 0, 1966120, 23, 0, 1966121, 23, 0, 1966122, 23, 0, 1966123, 23, 0, 1966124, 23, 0, 1966125, 23, 0, 1966126, 23, 0, 1966127, 23, 0, 1966128, 23, 0, 2031634, 23, 0, 2031635, 23, 0, 2031636, 23, 0, 2031637, 23, 0, 2031638, 23, 0, 2031639, 23, 0, 2031640, 23, 0, 2031641, 23, 0, 2031642, 23, 0, 2031643, 23, 0, 2031644, 23, 0, 2031645, 23, 0, 2031646, 23, 0, 2031647, 23, 0, 2031648, 23, 0, 2031649, 23, 0, 2031650, 23, 0, 2031651, 23, 0, 2031652, 23, 0, 2031653, 23, 0, 2031654, 23, 0, 2031655, 23, 0, 2031656, 23, 0, 2031657, 23, 0, 2031658, 23, 0, 2031659, 23, 0, 2031660, 23, 0, 2031661, 23, 0, 2031662, 23, 0, 2031663, 23, 0, 2031664, 23, 0, 2097170, 23, 0, 2097171, 23, 0, 2097172, 23, 0, 2097173, 23, 0, 2097174, 23, 0, 2097175, 23, 0, 2097176, 23, 0, 2097177, 23, 0, 2097178, 23, 0, 2097179, 23, 0, 2097180, 23, 0, 2097181, 23, 0, 2097182, 23, 0, 2097183, 23, 0, 2097184, 23, 0, 2097185, 23, 0, 2097186, 23, 0, 2097187, 23, 0, 2097188, 23, 0, 2097189, 23, 0, 2097190, 23, 0, 2097191, 23, 0, 2097192, 23, 0, 2097193, 23, 0, 2097194, 23, 0, 2097195, 23, 0, 2097196, 23, 0, 2097197, 23, 0, 2097198, 23, 0, 2097199, 23, 0, 2097200, 23, 0, 2162706, 23, 0, 2162707, 23, 0, 2162708, 23, 0, 2162709, 23, 0, 2162710, 23, 0, 2162711, 23, 0, 2162712, 23, 0, 2162713, 23, 0, 2162714, 23, 0, 2162715, 23, 0, 2162716, 23, 0, 2162717, 23, 0, 2162718, 23, 0, 2162719, 23, 0, 2162720, 23, 0, 2162721, 23, 0, 2162722, 23, 0, 2162723, 23, 0, 2162724, 23, 0, 2162725, 23, 0, 2162726, 23, 0, 2162727, 23, 0, 2162728, 23, 0, 2162729, 23, 0, 2162730, 23, 0, 2162731, 23, 0, 2162732, 23, 0, 2162733, 23, 0, 2162734, 23, 0, 2162735, 23, 0, 2162736, 23, 0, 2228242, 23, 0, 2228243, 23, 0, 2228244, 23, 0, 2228245, 23, 0, 2228246, 23, 0, 2228247, 23, 0, 2228248, 23, 0, 2228249, 23, 0, 2228250, 23, 0, 2228251, 23, 0, 2228252, 23, 0, 2228253, 23, 0, 2228254, 23, 0, 2228255, 23, 0, 2228256, 23, 0, 2228257, 23, 0, 2228258, 23, 0, 2228259, 23, 0, 2228260, 23, 0, 2228261, 23, 0, 2228262, 23, 0, 2228263, 23, 0, 2228264, 23, 0, 2228265, 23, 0, 2228266, 23, 0, 2228267, 23, 0, 2228268, 23, 0, 2228269, 23, 0, 2228270, 23, 0, 2228271, 23, 0, 2228272, 23, 0, 2293778, 23, 0, 2293779, 23, 0, 2293780, 23, 0, 2293781, 23, 0, 2293782, 23, 0, 2293783, 23, 0, 2293784, 23, 0, 2293785, 23, 0, 2293786, 23, 0, 2293787, 23, 0, 2293788, 23, 0, 2293789, 23, 0, 2293790, 23, 0, 2293791, 23, 0, 2293792, 23, 0, 2293793, 23, 0, 2293794, 23, 0, 2293795, 23, 0, 2293796, 23, 0, 2293797, 23, 0, 2293798, 23, 0, 2293799, 23, 0, 2293800, 23, 0, 2293801, 23, 0, 2293802, 23, 0, 2293803, 23, 0, 2293804, 23, 0, 2293805, 23, 0, 2293806, 23, 0, 2293807, 23, 0, 2293808, 23, 0, 2359314, 23, 0, 2359315, 23, 0, 2359316, 23, 0, 2359317, 23, 0, 2359318, 23, 0, 2359319, 23, 0, 2359320, 23, 0, 2359321, 23, 0, 2359322, 23, 0, 2359323, 23, 0, 2359324, 23, 0, 2359325, 23, 0, 2359326, 23, 0, 2359327, 23, 0, 2359328, 23, 0, 2359329, 23, 0, 2359330, 23, 0, 2359331, 23, 0, 2359332, 23, 0, 2359333, 23, 0, 2359334, 23, 0, 2359335, 23, 0, 2359336, 23, 0, 2359337, 23, 0, 2359338, 23, 0, 2359339, 23, 0, 2359340, 23, 0, 2359341, 23, 0, 2359342, 23, 0, 2359343, 23, 0, 2359344, 23, 0, 2424850, 23, 0, 2424851, 23, 0, 2424852, 23, 0, 2424853, 23, 0, 2424854, 23, 0, 2424855, 23, 0, 2424856, 23, 0, 2424857, 23, 0, 2424858, 23, 0, 2424859, 23, 0, 2424860, 23, 0, 2424861, 23, 0, 2424862, 23, 0, 2424863, 23, 0, 2424864, 23, 0, 2424865, 23, 0, 2424866, 23, 0, 2424867, 23, 0, 2424868, 23, 0, 2424869, 23, 0, 2424870, 23, 0, 2424871, 23, 0, 2424872, 23, 0, 2424873, 23, 0, 2424874, 23, 0, 2424875, 23, 0, 2424876, 23, 0, 2424877, 23, 0, 2424878, 23, 0, 2424879, 23, 0, 2424880, 23, 0 )
+
+[node name="Player2" parent="." groups=["Player"] instance=ExtResource( 2 )]
+position = Vector2( 444.069, 398.655 )
+
+[node name="Camera2D" type="Camera2D" parent="Player2"]
+position = Vector2( 8.47571, 2.1189 )
+current = true
+zoom = Vector2( 0.4, 0.4 )
+process_mode = 0
+limit_left = 294
+limit_top = 0
+limit_right = 776
+limit_bottom = 600
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="FireDemon" parent="." groups=["Boss"] instance=ExtResource( 3 )]
+position = Vector2( 603.528, 365.652 )
+
+[node name="Current_scene" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="Current_scene"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scene" type="CanvasLayer" parent="."]
+script = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="Scene"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.65686
+margin_bottom = 5.65686
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene"]
+root_node = NodePath("../ColorRect")
+autoplay = "Bright"
+anims/Bright = SubResource( 1 )
+anims/Dark = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 774.221, 403.3 )
+shape = SubResource( 4 )
+
+[connection signal="endgame" from="Scene" to="." method="_on_CanvasLayer_endgame"]
+[connection signal="animation_finished" from="Scene/AnimationPlayer" to="Scene" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Area2D" to="Scene" method="_on_Area2D_body_entered"]

@@ -249,8 +249,8 @@ height = 0.0
 
 [node name="enemy" type="KinematicBody2D"]
 position = Vector2( 188.988, 108.983 )
-collision_layer = 4
-collision_mask = 2
+collision_layer = 2
+collision_mask = 4
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -262,7 +262,7 @@ scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 1 )
 hframes = 13
 vframes = 5
-frame = 15
+frame = 26
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")

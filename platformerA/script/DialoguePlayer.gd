@@ -11,12 +11,20 @@ func _ready( ):
 	$NinePatchRect.visible = false
 	$NinePatchRect/Indicator/AnimationPlayer.play("MOve")
 	
+	
+func _process(_delta):
+	if ObjectInteraction.label1 == true:
+		$Press_suggestion.visible = true
+	else:
+		$Press_suggestion.visible = false
+	
 func play():
 	if is_dialgogue_ative:
 		return
 	
 	dialogues = load_dialogue()
 	
+	ObjectInteraction.label1 = false
 	is_dialgogue_ative = false
 	$NinePatchRect.visible = true
 	next_line()

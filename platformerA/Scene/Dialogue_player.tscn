@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://script/DialoguePlayer.gd" type="Script" id=1]
 [ext_resource path="res://assets/Dialogue/DialogueSystem v0.82/Assets/ExampleScene/Sprites/DialogueUI/panel_brown.png" type="Texture" id=2]
 [ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/poco/Poco.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/xolonium/Xolonium.tres" type="DynamicFont" id=4]
 [ext_resource path="res://assets/Dialogue/DialogueSystem v0.82/Assets/ExampleScene/Sprites/DialogueUI/arrowBrown_right.png" type="Texture" id=5]
+[ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/montreal/Montreal.tres" type="DynamicFont" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "MOve"
@@ -74,7 +75,7 @@ visible = false
 margin_left = 203.0
 margin_top = 408.0
 margin_right = 841.0
-margin_bottom = 531.0
+margin_bottom = 543.0
 texture = ExtResource( 2 )
 region_rect = Rect2( 0.368073, 1.03062, 98.3725, 97.47 )
 patch_margin_left = 6
@@ -86,10 +87,10 @@ __meta__ = {
 }
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
-margin_left = 27.0
-margin_top = 15.0
-margin_right = 127.0
-margin_bottom = 47.0
+margin_left = 22.0
+margin_top = 8.0
+margin_right = 182.0
+margin_bottom = 40.0
 custom_fonts/normal_font = ExtResource( 4 )
 text = "Name"
 __meta__ = {
@@ -97,10 +98,10 @@ __meta__ = {
 }
 
 [node name="Message" type="RichTextLabel" parent="NinePatchRect"]
-margin_left = 21.6364
-margin_top = 50.3182
-margin_right = 567.636
-margin_bottom = 119.318
+margin_left = 21.0
+margin_top = 41.0
+margin_right = 587.0
+margin_bottom = 134.0
 custom_fonts/normal_font = ExtResource( 3 )
 visible_characters = 0
 percent_visible = 0.0
@@ -112,9 +113,26 @@ __meta__ = {
 [node name="Indicator" type="Sprite" parent="NinePatchRect"]
 position = Vector2( 602.79, 97.5785 )
 rotation = 1.5708
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NinePatchRect/Indicator"]
 anims/MOve = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 anims/Word_spread = SubResource( 3 )
+
+[node name="Press_suggestion" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -192.305
+margin_top = -136.861
+margin_right = 208.695
+margin_bottom = -96.8612
+custom_fonts/font = ExtResource( 6 )
+text = "Press \"E\" to interact NPC"
+__meta__ = {
+"_edit_use_anchors_": false
+}

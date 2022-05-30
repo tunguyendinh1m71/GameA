@@ -1,0 +1,420 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/font/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.tres" type="DynamicFont" id=1]
+[ext_resource path="res://script/Tutorial.gd" type="Script" id=2]
+[ext_resource path="res://script/transition_screen.gd" type="Script" id=3]
+[ext_resource path="res://assets/button_up.png" type="Texture" id=4]
+[ext_resource path="res://assets/button_left.png" type="Texture" id=5]
+[ext_resource path="res://assets/button_down.png" type="Texture" id=6]
+[ext_resource path="res://assets/button_right.png" type="Texture" id=7]
+[ext_resource path="res://assets/1046544-large-medieval-knights-wallpaper-1920x1080-for-htc.jpg" type="Texture" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.00392157, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Movement:layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ -1, -1, -2, -3, -4, -5, -6, -7 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Movement/Button_down:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Movement/Button_up:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Movement/Button_left:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Movement/Button_right:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../VBoxContainer2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Back_button:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../VBoxContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0.00392157, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Movement:layer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Movement/Button_down:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Movement/Button_up:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Movement/Button_left:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Movement/Button_right:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../VBoxContainer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../VBoxContainer2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../Back_button:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.996078, 0.686275, 0.67451, 0.462745 )
+margin_right = 1027.0
+margin_bottom = 600.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="VBoxContainer" parent="."]
+margin_left = 284.168
+margin_top = 72.1189
+margin_right = 751.168
+margin_bottom = 112.119
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Title"]
+margin_right = 467.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "Here is the guide for you to play :>"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 599.0
+margin_top = 294.0
+margin_right = 853.0
+margin_bottom = 348.0
+rect_scale = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 254.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press \"X\" to Jump"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+margin_top = 29.0
+margin_right = 254.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press \"Z\" to attack"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+margin_left = 7.01776
+margin_top = 296.753
+margin_right = 282.018
+margin_bottom = 321.753
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+margin_right = 275.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 1 )
+text = "Press these to move"
+valign = 2
+
+[node name="Back_button" type="VBoxContainer" parent="."]
+margin_left = 465.046
+margin_top = 510.143
+margin_right = 565.046
+margin_bottom = 550.143
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Back_button"]
+margin_right = 100.0
+margin_bottom = 31.0
+custom_colors/font_color_focus = Color( 0.984314, 0.968627, 0.968627, 1 )
+custom_colors/font_color_pressed = Color( 0.0352941, 0.243137, 0.956863, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Back"
+flat = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="Node2D"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.00392157, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+autoplay = "appear"
+anims/Fade = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+anims/appear = SubResource( 3 )
+
+[node name="Movement" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Button_down" type="TextureRect" parent="Movement"]
+visible = false
+margin_left = 303.317
+margin_top = 290.937
+margin_right = 403.317
+margin_bottom = 390.937
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_up" type="TextureRect" parent="Movement"]
+visible = false
+margin_left = 300.719
+margin_top = 207.248
+margin_right = 400.719
+margin_bottom = 307.248
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_left" type="TextureRect" parent="Movement"]
+visible = false
+margin_left = 259.592
+margin_top = 250.357
+margin_right = 359.592
+margin_bottom = 350.357
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_right" type="TextureRect" parent="Movement"]
+visible = false
+margin_left = 344.272
+margin_top = 247.865
+margin_right = 444.272
+margin_bottom = 347.865
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Back_button/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Back_button/Button" to="CanvasLayer" method="_on_Button_pressed"]
+[connection signal="change" from="CanvasLayer" to="." method="_on_CanvasLayer_change"]
+[connection signal="animation_finished" from="CanvasLayer/AnimationPlayer" to="CanvasLayer" method="_on_AnimationPlayer_animation_finished"]
